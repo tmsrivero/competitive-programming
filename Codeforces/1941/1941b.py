@@ -1,9 +1,19 @@
-t = int(input())
-for _ in range(t):
+def solve():
     n = int(input())
     a = list(map(int, input().split()))
-
-    if a[1] - (2*a[0]) == 1 and a[n-2] - (2*a[n-1]) == 1:
-        print("YES")
-    else:
+    for i in range(n-2):
+        if a[i] < 0:
+            print("NO")
+            return
+        op = a[i]
+        a[i] -= op
+        a[i+1] -= 2*op
+        a[i+2] -= op
+    if a[-1] != 0 or a[-2] != 0:
         print("NO")
+    else:
+        print("YES")
+
+
+for _ in range(int(input())):
+    solve()
