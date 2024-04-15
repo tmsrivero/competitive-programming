@@ -1,21 +1,15 @@
 t = int(input())
+for _ in range(t):
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    c = sorted(a)
+    d = sorted(b)
+    e = [0]*n
+    for i in range(len(a)):
+        p = a.index(c[i])
+        a[p] = 10 ^ 10
+        e[p] = d[i]
 
-for i in range(t):
-
-    n,k = map(int,input().split())
-
-    a = list(map(int,input().split()))
-    b = list(map(int,input().split()))
-    c = [0]*n
-    
-    for j in range(n):
-        ban = False
-        for r in range(n):
-            if (abs(a[j] - b[r]) <= k and ban == False):
-                c[j] = b[r]
-                b[r] = 10**9
-                ban = True
-
-    print(*c)
-        
-
+    for item in e:
+        print(item, end=" ")
